@@ -34,7 +34,7 @@ spec:
         "beta.kubernetes.io/os": windows
       containers:
         - name: demowebapi
-          image: "devopslabacr.azurecr.io/devopswindows:buildnumber"
+          image: "vladregistrymod5.azurecr.io/devopswindows:buildnumber"
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
