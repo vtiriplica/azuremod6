@@ -1,0 +1,34 @@
+﻿@model IndexModel
+
+@{
+    ViewBag.Title = "AKS Windows Containers";
+}
+
+<div class="jumbotron">
+    Windows Container on an AKS Windows Node accessing a Linux Container on a Linux Node
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-1 text-right">HOST</div>
+        <div class="col-sm-4">@Model.Host</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1 text-right">OS</div>
+        <div class="col-sm-4">@Model.OS</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1 text-right">.NET</div>
+        <div class="col-sm-4">@Model.Framework</div>
+    </div>
+
+</div>
+</br>
+<h1>Quotes</h1>
+</br>
+<ul>
+    @foreach (string quote in Model.Quotes)
+    {
+        <li>@quote</li>
+    }
+</ul>
+

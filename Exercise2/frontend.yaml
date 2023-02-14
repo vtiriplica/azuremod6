@@ -1,0 +1,43 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: devops-win
+spec:
+  selector:
+    app: devops-win
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-win
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-win
+  template:
+    metadata:
+      labels:
+        app: devops-win
+    spec:
+      tolerations:
+        - key: kubernetes.io/os
+          operator: Equal
+          value: windows
+          effect: NoSchedule
+      nodeSelector:
+        "beta.kubernetes.io/os": windows
+      containers:
+        - name: demowebapi
+          image: "devopslabacr.azurecr.io/devopswindows:buildnumber"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+      imagePullSecrets:
+        - name: acr 
