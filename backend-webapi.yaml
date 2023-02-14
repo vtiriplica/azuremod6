@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: demowebapi
-          image: "devopslabacr.azurecr.io/demo-webapi:BuildNumber"
+          image: "vladregistrymod5.azurecr.io/demo-webapi:BuildNumber"
           ports:
             - name: http
               containerPort: 9000
